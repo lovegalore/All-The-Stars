@@ -73,9 +73,10 @@ namespace Twitter
             if (method == "POST")
             {
                 byte[] postBody = new ASCIIEncoding().GetBytes(encodedParams);
-                Stream stream = request.GetRequestStream();
-                stream.Write(postBody, 0, postBody.Length);
-                stream.Close();
+                using (Stream stream = request.GetRequestStream())
+                {
+                    stream.Write(postBody, 0, postBody.Length);
+                }
             }
 
             return request;
