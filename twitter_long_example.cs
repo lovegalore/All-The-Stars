@@ -13,7 +13,7 @@ namespace Twitter
         static void Main(string[] args)
         {
             HTTPClient client = new HTTPClient(5000, "Twitter C# client");
-            client.proxy = new WebProxy(PROXY_SERVER), false, null, new NetworkCredential(PROXY_USER, PROXY_PASSWORD));
+            client.proxy = new WebProxy(PROXY_SERVER, false, null, new NetworkCredential(PROXY_USER, PROXY_PASSWORD));
             client.oauth = new OAuth(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN_KEY, ACCESS_TOKEN_SECRET);
             const string URL = "https://api.twitter.com/1.1/search/tweets.json";
             Dictionary<string, string> parameters = new Dictionary<string, string>();
